@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 Route::get('/', 'PagesController@index');
-Route::get('/home', 'PagesController@home')->name('home');
+Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
