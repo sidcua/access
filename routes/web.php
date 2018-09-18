@@ -13,5 +13,5 @@
 
 
 Auth::routes();
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->middleware('guest');
 Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
