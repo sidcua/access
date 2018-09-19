@@ -1,20 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Home')
+@include('inc.navbar_personnel')
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard - Personnel</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+        <div class="col-md-8 offset-2">
+            <div class="card">
+                <h5 class="card-header bg-primary text-white">
+                    PDS
+                </h5>
+                <div class="card-body">
+                    <h5 class="card-title">Personal Data Sheet</h5>
+                    <a href="/pds" class="btn btn-primary">Go to PDS</a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Home')
-@include('inc.navbar')
+@include('inc.navbar_admin')
 @section('content')
 <div class="container">
     <div class="row">

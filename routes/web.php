@@ -13,5 +13,18 @@
 
 
 Auth::routes();
+Route::get('register', function(){
+    return redirect()->back();
+});
 Route::get('/', 'PagesController@index')->middleware('guest');
-Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'PagesController@home')->name('home');
+    Route::get('/pds', 'PagesController@pds');
+    Route::get('/accounts', 'PagesController@accounts');
+});
+Route::middleware('admin')->group(function () {
+    Route::match(['get', 'post'], '/accounts', 'PagesController@accounts');
+});
+Route::middleware('personnel')->group(function () {
+    Route::match(['get', 'post'], '/pds', 'PagesController@pds');
+});

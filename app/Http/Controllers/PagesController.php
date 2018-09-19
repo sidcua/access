@@ -13,11 +13,20 @@ class PagesController extends Controller
     public function home(){
         $type = Auth::user()->type;
         if($type == 2){
-            $view = view('users/admin/home');
+            $view = view('users.admin.home');
         }
         else if($type == 3){
-            $view = view('users/personnel/home');
+            $view = view('users.personnel.home');
         }
         return $view;
+    }
+    public function pds(){
+        return view('users.personnel.pds.pds');
+    }
+    public function accounts(){
+        return view('users.admin.accounts.accounts');
+    }
+    public function register(){
+        return view('auth.register');
     }
 }
