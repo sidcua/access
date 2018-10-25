@@ -1,27 +1,37 @@
 @extends('layouts.app')
 @section('title', 'ACCESS')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-2">
+    <div class="container pt-5">
+        {{-- <div class="row justify-content-center">
+            <div class="col-md-2">
+                <img src="{{ asset('img/shield.png') }}" class="img-fluid" style="max-width:100%; height:auto">
+            </div>
+        </div> --}}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <p class="h3 text-center text-primary">{{ config('app.name') }}</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white">Login</div>
 
-                    <div class="card-body">
-                        <form class="form-horizontal col-md-8 offset-2" method="POST" action="{{ route('login') }}">
+                    <div class="card-body col-md-8 align-self-center">
+                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('email') ? ' is-invalid' : '' }}">
                                 <label for="email">E-Mail Address</label>
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
                                     @if ($errors->has('email'))
-                                        <span class="help-block">
+                                        <span class="help-block">   
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
                             </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('password') ? ' is-invalid' : '' }}">
                                 <label for="password">Password</label>
                                     <input id="password" type="password" class="form-control" name="password" required>
                                     @if ($errors->has('password'))

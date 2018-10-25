@@ -23,9 +23,6 @@ class PagesController extends Controller
     public function pds(){
         return view('users.personnel.pds.pds');
     }
-    public function accounts(){
-        return view('users.admin.accounts.accounts');
-    }
     public function register(){
         return view('auth.register');
     }
